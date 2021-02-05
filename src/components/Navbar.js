@@ -1,12 +1,19 @@
 import React, {useContext} from 'react';
 import {NavLink} from 'react-router-dom';
 import {AuthContext} from '../contexts/AuthContext';
-
+import Cookies from 'universal-cookie';
+import { Button } from 'react-bootstrap';
 //<a class="nav-link" href="/">Home</a>
 
 function Navbar(props){
 
-  const {currentUser} = useContext(AuthContext);
+  const {currentUser, setCurrentUser} = useContext(AuthContext);
+  const cookies = new Cookies();
+
+  function logout() {
+    cookies.remove('jwt');
+    setCurrentUser();
+  };
 
   return (
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -22,6 +29,9 @@ function Navbar(props){
             </li>
             <li class="nav-item">
               <NavLink className="nav-link" to="/">{currentUser.username}</NavLink>
+            </li>
+            <li class="nav-item">
+              <Button onClick={logout} variant="outline-danger">Log out</Button>
             </li>
           </ul>
         </div>
