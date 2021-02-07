@@ -38,7 +38,6 @@ export default function Login(props){
   }
 
   return(
-
 		<>
     {currentUser ? 
     <p>
@@ -47,8 +46,8 @@ export default function Login(props){
     :
     <Card>
       <Card.Body>
-      <h2 className="text-center mb-4">Login</h2>
-      {error && <Alert variant="danger"> {error} </Alert> }
+        <h2 className="text-center mb-4">Login</h2>
+        {error && <Alert variant="danger"> {error} </Alert> }
         <Form onSubmit={handleSubmit}>
           <Form.Group id="username">
             <Form.Label>Username</Form.Label>

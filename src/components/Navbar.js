@@ -31,6 +31,9 @@ function Navbar(props){
               <NavLink className="nav-link" to="/">{currentUser.username}</NavLink>
             </li>
             <li class="nav-item">
+              <NavLink className="nav-link" to="/create">New Post</NavLink>
+            </li>
+            <li class="nav-item">
               <Button onClick={logout} variant="outline-danger">Log out</Button>
             </li>
           </ul>
