@@ -23,7 +23,7 @@ async function checkToken(){
   return null;
 };
 
-const AuthProvider = (props) => {
+function AuthProvider(props){
 
   const [currentUser, setCurrentUser] = useState();
   useEffect(() => {

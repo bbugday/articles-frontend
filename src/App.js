@@ -1,6 +1,6 @@
 import './App.css';
 import React from 'react';
-import Navbar from './components/Navbar';
+import Navbar from './components/navbar/Navbar';
 import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import Login from './components/Login';
 import Signup from './components/Signup';
@@ -14,15 +14,13 @@ export default function App() {
     <AuthProvider>
       <Router>
         <Navbar/>
-        <Container className="d-flex align-items-center justify-content-center" style={{minHeight:"100vh"}}>
-          <div className="w-100" style={{maxWidth:"400px"}}>
+        <Container>
             <div className="App">
               <Route exact path="/" component = {Home}/>
               <Route path="/login" component = {Login}/>
               <Route path="/signup" component = {Signup}/>
               <Route path="/create" component = {Create}/>
             </div>
-          </div>
         </Container>
       </Router>
     </AuthProvider>

@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+@font-face{
+  font-family: 'AquireBold';
+  src: local('AquireBold'), url(../../assets/fonts/AquireBold.otf) format('opentype');
+}
+
+.Navbar{
+  position: sticky;
+  top: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-items: center;
+  align-items: center;
+  background-color: white;
+  height: 55px;
+  border-bottom: lightgray 1px solid;
+
+  .brand{
+    font-family:'AquireBold';
+    margin: 0;
+    font-size: 36px;
+  }
+
+  .center{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    justify-items: center;
+  
+    .add-icon{
+      display:inline-block;
+      border-radius: 50%;
+      height:45px;
+      width:45px;
+      text-align:center;
+      background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+      box-shadow: 0px 3px 10px rgba(0,0,0,.25);
+    
+      .plus{
+        color:white;
+        font-size:22px;
+        margin-top:12.5px;
+      }
+    }
+  
+    .add-icon:hover{
+      cursor: pointer;
+    }
+  
+    .navbar-icons{
+      color: #aaaaaa;
+      font-size: 25px;
+    }
+  
+    .home-icon{
+      margin-right: 35px;
+    }
+  
+    .navbar-icons:hover{
+      color: grey;
+      cursor: pointer;
+    }
+  
+    .members-icon{
+      margin-left: 35px;
+    }
+  }
+
+  .authentication{
+    font-family: 'Roboto', sans-serif;
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    font-size: 20px;
+    .login-button{
+      margin-right: 30px;
+    }
+    .login-button:hover,.signup-button:hover,.username:hover,.logout:hover{
+      cursor: pointer;
+    }
+
+    .username{
+      margin-right: 30px;
+    }
+  }
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
