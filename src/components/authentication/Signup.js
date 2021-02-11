@@ -1,15 +1,16 @@
 import React, {useState, useContext, useRef} from "react";
 import Cookies from 'universal-cookie';
 import {AuthContext} from '../../contexts/AuthContext';
+import './Signup.scss'
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faArrowRight} from '@fortawesome/free-solid-svg-icons'
 
-function Signup(props){
+export default function Signup(props){
   const cookies = new Cookies();
   const {currentUser, setCurrentUser} = useContext(AuthContext);
   const usernameRef = useRef();
   const passwordRef = useRef();
   const [error, setError] = useState('');
-	const [loading, setLoading] = useState(false);
-
 
   async function handleSubmit (e){
 		e.preventDefault();
@@ -17,7 +18,6 @@ function Signup(props){
 		const password = passwordRef.current.value;
 		try {
 			setError('');
-      setLoading(true);
       const res = await fetch('http://localhost:8080/signup', {
         method: 'POST',
         body: JSON.stringify({username, password}),
@@ -30,35 +30,28 @@ function Signup(props){
         setCurrentUser(data.user);
         props.history.push('/');
 			}
-			setLoading(false);
     } catch (err) {
       setError('Failed to login.');
     }
   };
-
   
-    return (
-      <form onSubmit={handleSubmit}>
-        <label>
-          Username:
-          <input
-            name="username"
-            type="text"
-            ref={usernameRef}
-            required/>
-        </label>
-        <br />
-        <label>
-          Password:
-          <input
-            name="password"
-            type="password"
-            ref={passwordRef}
-            required />
-        </label>
-        <input type="submit" value="Submit" />
-      </form>
-    )
-}
-
-export default Signup;
+  return(
+		<div>
+      {currentUser ? 
+      <div className="signed-in">You are already signed in.</div> 
+      : 
+      <div className="Signup">
+        <div className="label">Sign up to blog</div>
+          <div>
+            <form className="signup-form" onSubmit={handleSubmit}>
+              <input name="username" type="text" placeholder="Username" ref={usernameRef} required/>
+              <input name="password" type="password" placeholder="Password" ref={passwordRef} required/>
+              <div className="submit-button" onClick={handleSubmit}><FontAwesomeIcon className="arrow-icon" icon={faArrowRight}/></div>
+              <input type="submit" className="hidden-submit" value="Submit" />
+            </form>
+          </div>
+      </div>
+      }
+    </div>
+	)
+};

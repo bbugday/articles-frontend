@@ -6,7 +6,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faPlus, faHome, faUserFriends} from '@fortawesome/free-solid-svg-icons'
 import {useHistory} from "react-router-dom";
 
-function Navbar(props){
+export default function Navbar(props){
 
   const {currentUser, setCurrentUser} = useContext(AuthContext);
   const cookies = new Cookies();
@@ -22,7 +22,7 @@ function Navbar(props){
       <div className="brand">BLOG</div>
       <div className="center">
         <FontAwesomeIcon onClick={()=>{history.push('/')}} className="home-icon navbar-icons" icon={faHome}/>
-        <div className="add-icon"><FontAwesomeIcon className="plus" icon={faPlus}/></div>
+        <div className="add-icon" onClick={()=>{history.push('/create')}}><FontAwesomeIcon className="plus" icon={faPlus}/></div>
         <FontAwesomeIcon className="members-icon navbar-icons" icon={faUserFriends}/>
       </div>
       {currentUser ? 
@@ -38,5 +38,4 @@ function Navbar(props){
       }
     </nav>    
   )
-}
-export default Navbar;
+};

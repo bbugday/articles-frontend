@@ -1,6 +1,6 @@
 import React, {useRef, useState, useContext} from "react";
 import {Card, Form, Button, Alert} from 'react-bootstrap';
-import {AuthContext} from '../contexts/AuthContext';
+import {AuthContext} from '../../contexts/AuthContext';
 
 export default function Create(props){
   const {currentUser} = useContext(AuthContext);
