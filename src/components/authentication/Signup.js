@@ -1,6 +1,6 @@
 import React, {useState, useContext, useRef} from "react";
 import Cookies from 'universal-cookie';
-import {AuthContext} from '../contexts/AuthContext';
+import {AuthContext} from '../../contexts/AuthContext';
 
 function Signup(props){
   const cookies = new Cookies();
