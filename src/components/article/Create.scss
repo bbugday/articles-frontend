@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+.Create{
+  margin-top: 50px;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+
+  .label{
+    font-family: 'Big Shoulders Display', cursive;
+    font-size: 40px;
+  }
+
+  .create-form{
+    display: grid;
+    width: 1000px;
+
+    input[type=submit]{
+      margin-top: 30px;
+      padding: 10px 10px;
+      width: 150px;
+      background-color: white;
+      color: black;
+      border: 2px solid #555555;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 24px;
+      transition-duration: 0.5s;
+      font-family: 'Big Shoulders Display', cursive;
+      cursor: pointer;
+    }
+
+    input[type=submit]:hover{
+      background-color: black;
+      color: white;
+    }
+
+    label{
+      font-family: 'Open Sans', sans-serif;
+      justify-self: start;
+      font-size: 24px;
+    }
+
+    .body-label{
+      margin-top: 15px;
+    }
+  }
+}
+
+.no-user{
+  font-family: 'Big Shoulders Display', cursive;
+  margin-top: 60px;
+  font-size: 36px;
+  span{
+    color: #007bff;
+    cursor: pointer;
+  }
+}

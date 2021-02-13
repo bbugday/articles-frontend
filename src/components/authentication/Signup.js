@@ -42,14 +42,12 @@ export default function Signup(props){
       : 
       <div className="Signup">
         <div className="label">Sign up to blog</div>
-          <div>
-            <form className="signup-form" onSubmit={handleSubmit}>
-              <input name="username" type="text" placeholder="Username" ref={usernameRef} required/>
-              <input name="password" type="password" placeholder="Password" ref={passwordRef} required/>
-              <div className="submit-button" onClick={handleSubmit}><FontAwesomeIcon className="arrow-icon" icon={faArrowRight}/></div>
-              <input type="submit" className="hidden-submit" value="Submit" />
-            </form>
-          </div>
+          <form className="signup-form" onSubmit={handleSubmit}>
+            <input name="username" type="text" placeholder="Username" ref={usernameRef} required/>
+            <input name="password" type="password" placeholder="Password" ref={passwordRef} required/>
+            <div className="submit-button" onClick={handleSubmit}><FontAwesomeIcon className="arrow-icon" icon={faArrowRight}/></div>
+            <input type="submit" className="hidden-submit" value="Submit" />
+          </form>
       </div>
       }
     </div>

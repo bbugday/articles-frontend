@@ -1,58 +1,50 @@
 import React, {useRef, useState, useContext} from "react";
-import {Card, Form, Button, Alert} from 'react-bootstrap';
 import {AuthContext} from '../../contexts/AuthContext';
+import './Create.scss';
 
 export default function Create(props){
   const {currentUser} = useContext(AuthContext);
   const titleRef = useRef();
   const bodyRef = useRef();
 	const [error, setError] = useState('');
-	const [loading, setLoading] = useState(false);
 
   async function handleSubmit(e) {
     e.preventDefault();
     const title = titleRef.current.value;
 		const body = bodyRef.current.value;
+    console.log(title,body);
     try {
 			setError('');
-      setLoading(true);
       const res = await fetch('http://localhost:8080/articles/create', {
         method: 'POST',
         body: JSON.stringify({title, body}),
         headers: {'Content-Type': 'application/json'},
         credentials: 'include'
       });
-			setLoading(false);
       props.history.push('/');
     } catch (err) {
       setError('Failed to post.');
     }
   };
 
-
   return(
-		<>
+		<div>
       {currentUser ? 
-        <Card>
-          <Card.Body>
-            <h2 className="text-center mb-4">Create New Article</h2>
-            {error && <Alert variant="danger"> {error} </Alert> }
-            <Form onSubmit={handleSubmit}>
-              <Form.Group id="title">
-                <Form.Label>Title</Form.Label>
-                <Form.Control type="text" ref={titleRef}></Form.Control>
-              </Form.Group>
-              <Form.Group id="body">
-                <Form.Label>Body</Form.Label>
-                <Form.Control type="textarea" ref={bodyRef}></Form.Control>
-              </Form.Group>
-              <Button disabled = {loading} className="w-100" type="submit">Post</Button>
-            </Form>
-          </Card.Body>
-        </Card>
-    :
-    <p>Please log in.</p>
-    }
-    </>
+      <div className="Create">
+        <div className="label">Create new article</div>
+        <form className="create-form" onSubmit={handleSubmit}>
+          <label for="title">Title</label>
+          <input name="title" className="title-input" id="title" type="text" ref={titleRef} required/>
+          <label className="body-label" for="body">Body</label>
+          <textarea rows={20} id="body" ref={bodyRef}></textarea>
+          <input type="submit" className="hidden-submit" value="Submit" />
+        </form>
+      </div>
+      : 
+      <div class="no-user">
+        <span onClick={() => {props.history.push('/login')}}>Log in</span> to create new article.
+      </div>
+      }
+    </div>
 	)
 };
