@@ -7,6 +7,7 @@ import Signup from './components/authentication/Signup';
 import Home from './components/Home';
 import Create from './components/article/Create';
 import AuthProvider from './contexts/AuthContext';
+import ArticleDetails from './components/article/ArticleDetails';
 
 export default function App() {
   return (
@@ -18,6 +19,7 @@ export default function App() {
             <Route path="/login" component = {Login}/>
             <Route path="/signup" component = {Signup}/>
             <Route path="/create" component = {Create}/>
+            <Route exact path="/article/:id" component={ArticleDetails} />
           </div>
       </Router>
     </AuthProvider>
