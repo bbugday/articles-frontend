@@ -19,7 +19,7 @@ export default function Navbar(props){
 
   return (
     <nav className="Navbar">
-      <div className="brand">BLOG</div>
+      <div className="brand">ARTICLES</div>
       <div className="center">
         <FontAwesomeIcon onClick={()=>{history.push('/')}} className="home-icon navbar-icons" icon={faHome}/>
         <div className="add-icon" onClick={()=>{history.push('/create')}}><FontAwesomeIcon className="plus" icon={faPlus}/></div>

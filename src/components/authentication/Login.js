@@ -41,7 +41,7 @@ export default function Login(props){
       <div className="signed-in">You are already signed in.</div> 
       : 
       <div className="Login">
-        <div className="label">Log in to blog</div>
+        <div className="label">Log in to articles</div>
           <form className="login-form" onSubmit={handleSubmit}>
             <input name="username" type="text" placeholder="Username" ref={usernameRef} required/>
             <input name="password" type="password" placeholder="Password" ref={passwordRef} required/>

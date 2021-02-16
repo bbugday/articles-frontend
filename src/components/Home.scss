@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Magra&display=swap');
+
+.Home{
+  display: grid;
+  justify-content: center;
+  .article{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    display: grid;
+    justify-content: left;
+    width: 650px;
+    display: grid;
+    border: lightgrey 1px solid;
+    padding-left: 30px;
+    padding-bottom: 20px;
+    text-align: left;
+    .image{
+      margin-top: 20px;
+    }
+    .title{
+      margin-top: 10px;
+      justify-self: left;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 20px;
+      font-weight: bold;
+    }
+    .body{
+      margin-top: 5px;
+      justify-self: left;
+      font-family: 'Open Sans', sans-serif;
+      span{
+        color: #007bff;
+        cursor: pointer;
+      }
+    }
+    .author{
+      margin-top: 15px;
+      font-family: 'Magra', sans-serif;
+      font-size: 18px;
+      span{
+        color: grey;
+      }
+    }
+  }
+}
